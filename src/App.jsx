@@ -12,6 +12,7 @@ import Stats from './components/Stats';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -86,11 +87,11 @@ function App() {
       <Resume />
       <Testimonial />
       <Stats />
-      <FAQ />
       <Pricing />
       <Clients />
       <Blog />
       <FAQ />
+      <Contact />
     </>
   );
 }
