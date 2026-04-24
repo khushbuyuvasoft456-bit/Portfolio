@@ -10,6 +10,7 @@ import Clients from './components/Clients';
 import Testimonial from './components/Testimonial';
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
+import Blog from './components/Blog';
 
 function App() {
   return (
@@ -86,6 +87,7 @@ function App() {
       <Stats />
       <Pricing />
       <Clients />
+      <Blog />
     </>
   );
 }
