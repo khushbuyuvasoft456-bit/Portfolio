@@ -1,0 +1,219 @@
+.about-section {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 6rem 5%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    color: #888888;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .about-header h2 {
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: #111111;
+    margin-top: 0.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0 2rem;
+  }
+  
+  .separator .line {
+    width: 30px;
+    height: 1.5px;
+    background-color: var(--yellow-accent, #FFC815);
+  }
+  
+  .separator .hexagon {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--yellow-accent, #FFC815);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: white;
+  }
+  
+  .intro-text {
+    max-width: 800px;
+    color: #9ca3af; /* light gray as per the image */
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  
+  .about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  /* Columns */
+  .img-column {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .hex-border {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 100 / 115;
+    position: relative;
+    /* optional hover effect */
+    transition: transform 0.3s ease;
+  }
+  .hex-border:hover {
+      transform: scale(1.02);
+  }
+  
+  .text-column {
+    flex: 0 0 35%;
+    padding-right: 1rem;
+  }
+  
+  .text-column h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #222222;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .text-column p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+  
+  .info-column {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.5rem; /* alignment with paragraphs */
+  }
+  
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+  }
+  
+  .info-list li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  
+  .info-list li .label {
+    font-weight: 700;
+    color: #374151;
+    min-width: 100px;
+    margin-right: 0.5rem;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem;
+    padding-right: 1.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .outline-btn {
+    border: 2px solid var(--yellow-accent, #FFC815);
+    color: #111111;
+    background: transparent;
+  }
+  
+  .solid-btn {
+    border: 2px solid var(--yellow-accent, #FFC815);
+    background: var(--yellow-accent, #FFC815);
+    color: #111111;
+  }
+  
+  .icon-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .yellow-circle {
+    background-color: var(--yellow-accent, #FFC815);
+    color: #111111;
+  }
+  
+  .white-circle {
+    background-color: #ffffff;
+    color: #111111;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .img-column, .text-column, .info-column {
+      flex: 1 1 100%;
+      width: 100%;
+      padding: 0;
+    }
+    .text-column {
+        margin-bottom: 2rem;
+    }
+    .info-column {
+        padding-top: 0;
+    }
+    .img-column {
+        margin-bottom: 3rem;
+    }
+    .hex-border {
+        max-width: 250px;
+    }
+  }

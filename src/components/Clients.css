@@ -1,0 +1,125 @@
+.clients-section {
+    background-color: #ffffff;
+    padding: 2rem 0;
+    width: 100vw;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+  }
+  
+  .clients-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 4rem;
+  }
+  
+  .client-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #eaeaea;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cc0066; /* Match the distinct pinkish-red arrow from image */
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .client-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .client-arrow:hover {
+    border-color: #cc0066;
+    background: #fdf5f8;
+  }
+  
+  .client-arrow.prev {
+    left: 2rem;
+  }
+  
+  .client-arrow.next {
+    right: 2rem;
+  }
+  
+  .clients-carousel-window {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .clients-carousel-window::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .clients-track {
+    display: flex;
+    gap: 15px;
+    /* Allows elements to dictate their widths */
+    width: max-content;
+  }
+  
+  .client-card {
+    width: 15rem; /* ~240px wide */
+    height: 100px; /* ~100px tall */
+    flex-shrink: 0;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    scroll-snap-align: start;
+  }
+  
+  .client-card svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .client-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    border-color: #e2e2e2;
+  }
+  
+  /* Make middle/active item stand out theoretically */
+  /* For a pure slider, hover is usually enough */
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .client-card {
+      width: 12rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .client-arrow {
+      display: none;
+    }
+    .clients-wrapper {
+      padding: 0 1rem;
+    }
+    .client-card {
+      scroll-snap-align: center;
+    }
+  }

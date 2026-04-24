@@ -1,0 +1,204 @@
+.resume-section {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .resume-column {
+    flex: 1;
+    padding: 6rem 5% 6rem 10%;
+  }
+  
+  /* Right side padding adjustment to match visual balance */
+  .education-section {
+    padding: 6rem 10% 6rem 5%;
+  }
+  
+  .work-section {
+    background-color: #0b0b0b;
+    color: #ffffff;
+  }
+  
+  .education-section {
+    background-color: #fafafa;
+    color: #111111;
+  }
+  
+  /* Headers */
+  .resume-header {
+    margin-bottom: 3.5rem;
+  }
+  
+  .resume-header h2 {
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    margin: 0 0 1rem 0;
+  }
+  
+  .header-line {
+    width: 40px;
+    height: 2px;
+    margin-bottom: 2rem;
+  }
+  
+  .light-line {
+    background-color: #ffffff;
+  }
+  
+  .dark-line {
+    background-color: #111111;
+  }
+  
+  .resume-intro, .resume-intro-color {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 90%;
+  }
+  
+  .resume-intro-color {
+    color: #888888;
+  }
+  
+  .resume-intro {
+    color: #777777;
+  }
+  
+  /* Cards */
+  .resume-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .resume-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .resume-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .dark-card {
+    background-color: #1a1a1a;
+  }
+  
+  .light-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+  
+  /* Icons */
+  .card-icon-container {
+    flex-shrink: 0;
+  }
+  
+  .yellow-circle-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--yellow-accent, #FFC815);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+  }
+  
+  .yellow-circle-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .gray-shield-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+  }
+  
+  .gray-shield-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Card Content */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  
+  .meta-company, .meta-school {
+    font-size: 0.9rem;
+    color: #999999;
+    margin-bottom: 0.2rem;
+  }
+  
+  .meta-role, .meta-degree {
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+  }
+  
+  .yellow-text {
+    color: var(--yellow-accent, #FFC815);
+  }
+  
+  .dark-text {
+    color: #111111;
+  }
+  
+  .meta-year {
+    font-size: 0.8rem;
+    color: #777777;
+  }
+  
+  .card-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #888888;
+    margin: 0;
+  }
+  
+  .light-card .card-desc {
+    color: #777777;
+  }
+  
+  /* Responsive Breakpoint */
+  @media (max-width: 1024px) {
+    .resume-section {
+      flex-direction: column;
+    }
+    .resume-column {
+      padding: 5rem 5% !important; /* standardize padding */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .resume-card {
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+    }
+    .yellow-circle-icon {
+      width: 50px;
+      height: 50px;
+    }
+    .yellow-circle-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
