@@ -1,0 +1,77 @@
+.stats-section {
+  background-color: #212121; /* Dark background as seen in the image */
+  padding: 80px 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 5%;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-hexagon {
+  width: 80px;
+  height: 92px;
+  background-color: var(--yellow-accent, #FFC815);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-hexagon {
+  transform: translateY(-5px);
+}
+
+.stat-hexagon svg {
+  width: 32px;
+  height: 32px;
+  color: #1a1a1a; /* Dark icon inside yellow hexagon */
+}
+
+.stat-number {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.stat-label {
+  color: #9ca3af; /* Light gray text for labels */
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .stat-card {
+    min-width: 45%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stat-card {
+    min-width: 100%;
+  }
+}
