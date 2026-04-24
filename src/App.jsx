@@ -11,6 +11,7 @@ import Testimonial from './components/Testimonial';
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
+import FAQ from './components/FAQ';
 
 function App() {
   return (
@@ -85,9 +86,11 @@ function App() {
       <Resume />
       <Testimonial />
       <Stats />
+      <FAQ />
       <Pricing />
       <Clients />
       <Blog />
+      <FAQ />
     </>
   );
 }
