@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { Routes, Route, Link as RouterLink } from 'react-router-dom';
+import { NavHashLink as HashLink } from 'react-router-hash-link';
 import './App.css';
 import bgImage from './assets/designer_bg.png';
 import About from './components/About';
@@ -15,84 +17,95 @@ import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 
+const Navbar = () => (
+  <header className="navbar">
+    <div className="logo-container">
+      <div className="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </div>
+      <div className="logo-text">
+        <span className="first-name">KHUSHBU</span>
+        <span className="last-name">GURJAR</span>
+      </div>
+    </div>
+
+    <nav className="nav-links">
+      <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
+      <RouterLink to="/about">ABOUT US</RouterLink>
+      <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
+      <HashLink smooth to="/#portfolio" activeClassName="active">PORTFOLIO</HashLink>
+      <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
+      <RouterLink to="/blog">BLOG</RouterLink>
+      <HashLink smooth to="/#contact" activeClassName="active">CONTACT</HashLink>
+    </nav>
+
+    <button className="hire-btn nav-btn">
+      <svg className="user-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+      </svg>
+      HIRE ME
+    </button>
+  </header>
+);
+
+const Home = () => (
+  <>
+    <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="overlay"></div>
+      <main className="hero-content">
+        <div className="text-section">
+          <h1>I am <br /> <span className="highlight">Designer</span></h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur Iscing elit. Cras lacinia
+            magna vel molestie faucibus
+          </p>
+          <button className="hire-btn main-btn">HIRE ME</button>
+        </div>
+      </main>
+
+      <div className="hero-footer">
+        <div className="slider-dots">
+          <span className="dot active"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+        </div>
+
+        <div className="scroll-down">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="7" y="3" width="10" height="18" rx="5" ry="5" strokeWidth="1.5"></rect>
+            <circle cx="12" cy="8" r="1" strokeWidth="2"></circle>
+          </svg>
+          <span>SCROLL DOWN</span>
+        </div>
+
+        <div className="spacer"></div>
+      </div>
+    </div>
+    <Services />
+    <Portfolio />
+    <Skills />
+    <Resume />
+    <Testimonial />
+    <Stats />
+    <Pricing />
+    <Clients />
+
+    <FAQ />
+    <Contact />
+  </>
+);
+
 function App() {
   return (
     <>
-      <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
-        <div className="overlay"></div>
-
-        <header className="navbar">
-          <div className="logo-container">
-            <div className="logo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-            <div className="logo-text">
-              <span className="first-name">KHUSHBU</span>
-              <span className="last-name">GURJAR</span>
-            </div>
-          </div>
-
-          <nav className="nav-links">
-            <Link to="home" smooth={true} duration={500} spy={true} activeClass="active">HOME</Link>
-            <Link to="about" smooth={true} duration={500} spy={true} activeClass="active">ABOUT US</Link>
-            <Link to="services" smooth={true} duration={500} spy={true} activeClass="active">OUR SERVICES</Link>
-            <Link to="portfolio" smooth={true} duration={500} spy={true} activeClass="active">PORTFOLIO</Link>
-            <Link to="pricing" smooth={true} duration={500} spy={true} activeClass="active">PRICING</Link>
-            <Link to="blog" smooth={true} duration={500} spy={true} activeClass="active">BLOG</Link>
-            <Link to="contact" smooth={true} duration={500} spy={true} activeClass="active">CONTACT</Link>
-          </nav>
-
-          <button className="hire-btn nav-btn">
-            <svg className="user-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
-            HIRE ME
-          </button>
-        </header>
-
-        <main className="hero-content">
-          <div className="text-section">
-            <h1>I am <br /> <span className="highlight">Designer</span></h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur Iscing elit. Cras lacinia
-              magna vel molestie faucibus
-            </p>
-            <button className="hire-btn main-btn">HIRE ME</button>
-          </div>
-        </main>
-
-        <div className="hero-footer">
-          <div className="slider-dots">
-            <span className="dot active"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
-          </div>
-
-          <div className="scroll-down">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="7" y="3" width="10" height="18" rx="5" ry="5" strokeWidth="1.5"></rect>
-              <circle cx="12" cy="8" r="1" strokeWidth="2"></circle>
-            </svg>
-            <span>SCROLL DOWN</span>
-          </div>
-
-          <div className="spacer"></div>
-        </div>
-      </div>
-      <About />
-      <Services />
-      <Portfolio />
-      <Skills />
-      <Resume />
-      <Testimonial />
-      <Stats />
-      <Pricing />
-      <Clients />
-      <Blog />
-      <FAQ />
-      <Contact />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
     </>
   );
 }
