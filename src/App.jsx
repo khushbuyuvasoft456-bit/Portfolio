@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import './App.css';
 import bgImage from './assets/designer_bg.png';
 import About from './components/About';
@@ -17,7 +18,7 @@ import Contact from './components/Contact';
 function App() {
   return (
     <>
-      <div className="hero-container" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
         <div className="overlay"></div>
 
         <header className="navbar">
@@ -34,13 +35,13 @@ function App() {
           </div>
 
           <nav className="nav-links">
-            <a href="#home" className="active">HOME</a>
-            <a href="#about">ABOUT US</a>
-            <a href="#services">OUR SERVICES</a>
-            <a href="#portfolio">PORTFOLIO</a>
-            <a href="#pricing">PRICING</a>
-            <a href="#blog">BLOG</a>
-            <a href="#contact">CONTACT</a>
+            <Link to="home" smooth={true} duration={500} spy={true} activeClass="active">HOME</Link>
+            <Link to="about" smooth={true} duration={500} spy={true} activeClass="active">ABOUT US</Link>
+            <Link to="services" smooth={true} duration={500} spy={true} activeClass="active">OUR SERVICES</Link>
+            <Link to="portfolio" smooth={true} duration={500} spy={true} activeClass="active">PORTFOLIO</Link>
+            <Link to="pricing" smooth={true} duration={500} spy={true} activeClass="active">PRICING</Link>
+            <Link to="blog" smooth={true} duration={500} spy={true} activeClass="active">BLOG</Link>
+            <Link to="contact" smooth={true} duration={500} spy={true} activeClass="active">CONTACT</Link>
           </nav>
 
           <button className="hire-btn nav-btn">
