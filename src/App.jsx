@@ -10,6 +10,7 @@ import Portfolio from './components/Portfolio';
 import PortfolioPage from './components/PortfolioPage';
 import FAQPage from './components/FAQPage';
 import ContactPage from './components/ContactPage';
+import PricingPage from './components/PricingPage';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Clients from './components/Clients';
@@ -39,7 +40,7 @@ const Navbar = () => (
       <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
       <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
       <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')}>PORTFOLIO</NavLink>
-      <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
+      <NavLink to="/pricing" className={({ isActive }) => (isActive ? 'active' : '')}>PRICING</NavLink>
       <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
       <NavLink to="/faq" className={({ isActive }) => (isActive ? 'active' : '')}>FAQ</NavLink>
       <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>CONTACT</NavLink>
@@ -112,12 +113,14 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Routes>
     </>
   );
 }
 
 export default App;
+
 
 
 
