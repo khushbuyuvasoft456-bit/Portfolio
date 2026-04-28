@@ -9,6 +9,7 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import PortfolioPage from './components/PortfolioPage';
 import FAQPage from './components/FAQPage';
+import ContactPage from './components/ContactPage';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Clients from './components/Clients';
@@ -41,7 +42,7 @@ const Navbar = () => (
       <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
       <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
       <NavLink to="/faq" className={({ isActive }) => (isActive ? 'active' : '')}>FAQ</NavLink>
-      <HashLink smooth to="/#contact" activeClassName="active">CONTACT</HashLink>
+      <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>CONTACT</NavLink>
     </nav>
 
     <button className="hire-btn nav-btn">
@@ -110,11 +111,13 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
   );
 }
 
 export default App;
+
 
 
