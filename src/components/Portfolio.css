@@ -176,3 +176,23 @@
         padding: 0.8rem 1.2rem;
     }
   }
+
+.view-all-btn {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    border: 2px solid #111111;
+    background-color: transparent;
+    color: #111111;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
