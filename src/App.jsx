@@ -7,6 +7,7 @@ import bgImage from './assets/designer_bg.png';
 import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
+import PortfolioPage from './components/PortfolioPage';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Clients from './components/Clients';
@@ -35,7 +36,7 @@ const Navbar = () => (
       <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
       <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
       <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
-      <HashLink smooth to="/#portfolio" activeClassName="active">PORTFOLIO</HashLink>
+      <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')}>PORTFOLIO</NavLink>
       <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
       <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
       <HashLink smooth to="/#contact" activeClassName="active">CONTACT</HashLink>
@@ -104,6 +105,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
     </>
@@ -111,3 +113,4 @@ function App() {
 }
 
 export default App;
+

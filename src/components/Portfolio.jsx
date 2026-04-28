@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Portfolio.css';
 
 import imgClock from '../assets/portfolio_clock.png';
@@ -85,8 +86,13 @@ const Portfolio = () => {
           </svg>
         </button>
       </div>
+
+      <div className="portfolio-footer" style={{ marginTop: '3rem', textAlign: 'center' }}>
+        <Link to="/portfolio" className="view-all-btn">VIEW ALL PROJECTS</Link>
+      </div>
     </section>
   );
 };
 
 export default Portfolio;
+
