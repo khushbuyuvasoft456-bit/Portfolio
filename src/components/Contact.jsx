@@ -76,18 +76,18 @@ const Contact = () => {
         {/* Right Side: Map */}
         <div className="contact-right">
           <div className="map-overlay">
-             <div className="location-pin-container">
-                <div className="map-card">
-                   <h4>DAVID SMITH</h4>
-                   <p>PO Box 16122 Collins West,<br/> Amsterdam, Netherlands.</p>
+            <div className="location-pin-container">
+              <div className="map-card">
+                <h4>KHUSHBU GURJAR</h4>
+                <p>PO Box 16122 Collins West,<br /> Amsterdam, Netherlands.</p>
+              </div>
+              <div className="pin-wrapper">
+                <div className="pin-head">
+                  <div className="pin-dot"></div>
                 </div>
-                <div className="pin-wrapper">
-                   <div className="pin-head">
-                      <div className="pin-dot"></div>
-                   </div>
-                   <div className="pin-pulse"></div>
-                </div>
-             </div>
+                <div className="pin-pulse"></div>
+              </div>
+            </div>
           </div>
           {/* Placeholder for real map */}
           <div className="map-placeholder"></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import { Routes, Route, Link as RouterLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Link as RouterLink } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
 import './App.css';
 import bgImage from './assets/designer_bg.png';
@@ -33,11 +33,11 @@ const Navbar = () => (
 
     <nav className="nav-links">
       <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
-      <RouterLink to="/about">ABOUT US</RouterLink>
+      <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
       <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
       <HashLink smooth to="/#portfolio" activeClassName="active">PORTFOLIO</HashLink>
       <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
-      <RouterLink to="/blog">BLOG</RouterLink>
+      <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
       <HashLink smooth to="/#contact" activeClassName="active">CONTACT</HashLink>
     </nav>
 
