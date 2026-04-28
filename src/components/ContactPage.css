@@ -1,0 +1,258 @@
+.contact-page {
+    background-color: #111;
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.contact-header {
+    text-align: center;
+    padding: 6rem 0 3rem;
+}
+
+.contact-header .subtitle {
+    color: var(--yellow-accent, #FFC815);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.contact-header .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.contact-header .line {
+    width: 60px;
+    height: 1px;
+    background-color: #333;
+}
+
+.contact-header .hexagon {
+    width: 12px;
+    height: 14px;
+    background-color: var(--yellow-accent, #FFC815);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.header-text {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #999;
+    line-height: 1.6;
+}
+
+/* Main Content */
+.contact-main-content {
+    padding: 4rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+/* Info Section */
+.contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow-accent, #FFC815);
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+}
+
+.info-item:hover .icon-wrapper {
+    background-color: var(--yellow-accent, #FFC815);
+    color: #111;
+}
+
+.icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+.info-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #eee;
+}
+
+.info-content p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background-color: var(--yellow-accent, #FFC815);
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* Form Section */
+.contact-form-section {
+    background-color: #1a1a1a;
+    padding: 50px;
+    border-radius: 12px;
+}
+
+.contact-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    background-color: #222;
+    border: 1px solid #333;
+    padding: 1.2rem;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--yellow-accent, #FFC815);
+}
+
+.send-message-btn {
+    background-color: var(--yellow-accent, #FFC815);
+    color: #111;
+    border: none;
+    padding: 1.2rem;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.send-message-btn:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+/* Map Section */
+.map-section {
+    padding-bottom: 6rem;
+}
+
+.styled-map {
+    height: 450px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.map-overlay-card {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: #111;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--yellow-accent, #FFC815);
+}
+
+.map-overlay-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--yellow-accent, #FFC815);
+}
+
+.map-overlay-card p {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-header h1 {
+        font-size: 2.5rem;
+    }
+    .contact-form-section {
+        padding: 30px;
+    }
+}
