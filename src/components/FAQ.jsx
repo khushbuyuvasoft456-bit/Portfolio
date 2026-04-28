@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './FAQ.css';
 
 const faqData = [
@@ -35,7 +36,6 @@ const FAQ = () => {
           <div className="faq-bg-text">FAQ</div>
           <div className="faq-image-wrapper">
              <div className="question-mark">?</div>
-             {/* Using a placeholder for the thinking man since generation is exhausted */}
              <img 
                 src="https://img.freepik.com/free-photo/pensive-man-thinking-looking-up_23-2148192660.jpg" 
                 alt="Thinking Man" 
@@ -65,6 +65,10 @@ const FAQ = () => {
               )}
             </div>
           ))}
+          
+          <div className="faq-footer-action" style={{ marginTop: '2rem' }}>
+            <Link to="/faq" className="view-all-faq-btn">VIEW ALL FAQs</Link>
+          </div>
         </div>
       </div>
     </section>
@@ -72,3 +76,4 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
