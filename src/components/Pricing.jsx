@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Pricing.css';
 
 const pricingData = [
@@ -89,8 +90,13 @@ const Pricing = () => {
           </div>
         ))}
       </div>
+
+      <div className="pricing-footer" style={{ marginTop: '4rem', textAlign: 'center' }}>
+        <Link to="/pricing" className="view-all-pricing-btn">VIEW ALL PLANS</Link>
+      </div>
     </section>
   );
 };
 
 export default Pricing;
+
