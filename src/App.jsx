@@ -6,6 +6,7 @@ import './App.css';
 import bgImage from './assets/designer_bg.png';
 import About from './components/About';
 import Services from './components/Services';
+import ServicesPage from './components/ServicesPage';
 import Portfolio from './components/Portfolio';
 import PortfolioPage from './components/PortfolioPage';
 import FAQPage from './components/FAQPage';
@@ -38,7 +39,7 @@ const Navbar = () => (
     <nav className="nav-links">
       <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
       <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
-      <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
+      <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>OUR SERVICES</NavLink>
       <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')}>PORTFOLIO</NavLink>
       <NavLink to="/pricing" className={({ isActive }) => (isActive ? 'active' : '')}>PRICING</NavLink>
       <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
@@ -109,6 +110,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQPage />} />
