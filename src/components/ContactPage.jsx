@@ -1,7 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './ContactPage.css';
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatus({ type: '', message: '' });
+
+    // NOTE: You need to replace these with your actual EmailJS IDs
+    const serviceId = 'service_k8rcx9x'; // Replace with your Service ID
+    const templateId = 'template_hfv1dae'; // Replace with your Template ID
+    const publicKey = 'gm_-aTkpLN0xErJkS'; // Replace with your Public Key
+
+    emailjs.sendForm(serviceId, templateId, e.target, publicKey)
+      .then((result) => {
+        setIsSending(false);
+        setStatus({ type: 'success', message: 'Message sent successfully!' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, (error) => {
+        setIsSending(false);
+        setStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+        console.error('EmailJS Error:', error);
+      });
+  };
+
   return (
     <div className="contact-page">
       <header className="page-header contact-header">
@@ -14,7 +54,7 @@ const ContactPage = () => {
             <span className="line"></span>
           </div>
           <p className="header-text">
-            Have a project in mind or just want to say hi? I'd love to hear from you. 
+            Have a project in mind or just want to say hi? I'd love to hear from you.
             Fill out the form below or use any of the contact methods to get in touch.
           </p>
         </div>
@@ -78,20 +118,54 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-form-section">
-              <form className="contact-page-form">
+              <form className="contact-page-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input type="text" placeholder="Your Name" required />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Your Email" required />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="text" placeholder="Subject" />
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="form-group">
-                  <textarea placeholder="Your Message" rows="6" required></textarea>
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" className="send-message-btn">SEND MESSAGE</button>
+                <button type="submit" className="send-message-btn" disabled={isSending}>
+                  {isSending ? 'SENDING...' : 'SEND MESSAGE'}
+                </button>
+                {status.message && (
+                  <div className={`form-status ${status.type}`}>
+                    {status.message}
+                  </div>
+                )}
               </form>
             </div>
           </div>
@@ -102,11 +176,11 @@ const ContactPage = () => {
         <div className="map-container">
           {/* Placeholder for map */}
           <div className="styled-map">
-             <div className="map-overlay-card">
-                <h4>WORKING HOURS</h4>
-                <p>Monday - Friday: 09:00 - 18:00</p>
-                <p>Saturday: 10:00 - 14:00</p>
-             </div>
+            <div className="map-overlay-card">
+              <h4>WORKING HOURS</h4>
+              <p>Monday - Friday: 09:00 - 18:00</p>
+              <p>Saturday: 10:00 - 14:00</p>
+            </div>
           </div>
         </div>
       </section>
