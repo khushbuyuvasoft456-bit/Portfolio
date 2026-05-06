@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { Routes, Route, NavLink, Link as RouterLink } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
@@ -21,8 +21,9 @@ import Pricing from './components/Pricing';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import HireMeModal from './components/HireMeModal';
 
-const Navbar = () => (
+const Navbar = ({ onHireMeClick }) => (
   <header className="navbar">
     <div className="logo-container">
       <div className="logo-icon">
@@ -47,7 +48,7 @@ const Navbar = () => (
       <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>CONTACT</NavLink>
     </nav>
 
-    <button className="hire-btn nav-btn">
+    <button className="hire-btn nav-btn" onClick={onHireMeClick}>
       <svg className="user-icon" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg>
@@ -56,7 +57,7 @@ const Navbar = () => (
   </header>
 );
 
-const Home = () => (
+const Home = ({ onHireMeClick }) => (
   <>
     <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="overlay"></div>
@@ -67,7 +68,7 @@ const Home = () => (
             Lorem ipsum dolor sit amet, consectetur Iscing elit. Cras lacinia
             magna vel molestie faucibus
           </p>
-          <button className="hire-btn main-btn">HIRE ME</button>
+          <button className="hire-btn main-btn" onClick={onHireMeClick}>HIRE ME</button>
         </div>
       </main>
 
@@ -103,12 +104,18 @@ const Home = () => (
   </>
 );
 
+
+
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   return (
     <>
-      <Navbar />
+      <Navbar onHireMeClick={toggleModal} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
@@ -117,6 +124,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />
       </Routes>
+      <HireMeModal isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );
 }

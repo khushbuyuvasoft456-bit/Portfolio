@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatus({ type: '', message: '' });
+
+    // Using existing keys from ContactPage.jsx
+    const serviceId = 'service_k8rcx9x';
+    const templateId = 'template_hfv1dae';
+    const publicKey = 'gm_-aTkpLN0xErJkS';
+
+    emailjs.sendForm(serviceId, templateId, e.target, publicKey)
+      .then((result) => {
+        setIsSending(false);
+        setStatus({ type: 'success', message: 'Message sent successfully!' });
+        e.target.reset();
+        setTimeout(() => setStatus({ type: '', message: '' }), 5000);
+      }, (error) => {
+        setIsSending(false);
+        setStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+        console.error('EmailJS Error:', error);
+      });
+  };
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
@@ -16,8 +43,8 @@ const Contact = () => {
               </div>
               <div className="info-text">
                 <h3>Let's Talk</h3>
-                <p>Phone: 1-806-222-000</p>
-                <p>Fax: 1-806-222-000</p>
+                <p>Phone: +91 9617726823</p>
+                <p>Fax: +91 1234567890</p>
               </div>
             </div>
 
@@ -30,35 +57,36 @@ const Contact = () => {
               </div>
               <div className="info-text">
                 <h3>Email Us</h3>
-                <p>no-reply@domain.com</p>
-                <p>hire@domain.com</p>
+                <p>Khushbuyuvasoft456@gmail.com</p>
+                <p>hire.khushbu@domain.com</p>
               </div>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="input-field">
                 <span className="input-icon">👤</span>
-                <input type="text" placeholder="Name" />
+                <input type="text" name="name" placeholder="Name" required />
               </div>
               <div className="input-field">
                 <span className="input-icon">📱</span>
-                <input type="text" placeholder="Phone" />
+                <input type="text" name="phone" placeholder="Phone" />
               </div>
             </div>
 
             <div className="form-row">
               <div className="input-field">
                 <span className="input-icon">✉️</span>
-                <input type="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" required />
               </div>
               <div className="input-field select-field">
                 <span className="input-icon">☰</span>
-                <select defaultValue="">
-                  <option value="" disabled>What are you interested i...</option>
-                  <option value="web">Web Design</option>
-                  <option value="dev">Web Development</option>
+                <select name="interest" defaultValue="">
+                  <option value="" disabled>What are you interested in?</option>
+                  <option value="web-design">Web Design</option>
+                  <option value="web-dev">Web Development</option>
+                  <option value="app-dev">App Development</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -66,10 +94,18 @@ const Contact = () => {
 
             <div className="input-field textarea-field">
               <span className="input-icon">📝</span>
-              <textarea placeholder="Describe your project"></textarea>
+              <textarea name="message" placeholder="Describe your project" required></textarea>
             </div>
 
-            <button type="submit" className="submit-btn">SUBMIT</button>
+            <button type="submit" className="submit-btn" disabled={isSending}>
+              {isSending ? 'SENDING...' : 'SUBMIT'}
+            </button>
+
+            {status.message && (
+              <div className={`form-status ${status.type}`}>
+                {status.message}
+              </div>
+            )}
           </form>
         </div>
 
@@ -79,7 +115,7 @@ const Contact = () => {
             <div className="location-pin-container">
               <div className="map-card">
                 <h4>KHUSHBU GURJAR</h4>
-                <p>PO Box 16122 Collins West,<br /> Amsterdam, Netherlands.</p>
+                <p>Nemawar Road Dudhiya Indore,<br /> Madhya Pradesh, India.</p>
               </div>
               <div className="pin-wrapper">
                 <div className="pin-head">
