@@ -58,7 +58,7 @@ const Pricing = () => {
           <div className="line"></div>
         </div>
         <p className="intro-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t empor 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t empor
           incididunt ut labore et dolore magna aliqua. quis nostrud exercitation.
         </p>
       </div>
@@ -66,27 +66,43 @@ const Pricing = () => {
       <div className="pricing-container">
         {pricingData.map((plan) => (
           <div key={plan.id} className={`pricing-card ${plan.isFeatured ? 'featured' : ''}`}>
-            <div className="card-bg-letter">{plan.bgLetter}</div>
-            
-            <h4 className="plan-title">{plan.title}</h4>
-            
+            {plan.isFeatured && <div className="popular-badge">MOST POPULAR</div>}
+
+            <div className="card-header">
+              <div className="card-bg-letter">{plan.bgLetter}</div>
+              <h4 className="plan-title">{plan.title}</h4>
+            </div>
+
             <div className="price-container">
               <span className="currency">$</span>
               <span className="price">{plan.price}</span>
+              <span className="period">/Month</span>
             </div>
-            
-            <ul className="features-list">
-              {plan.features.map((feature, idx) => (
-                <li key={idx}>
-                  <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            
-            <button className="select-btn">SELECT</button>
+
+            <div className="card-body">
+              <ul className="features-list">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx}>
+                    <div className="icon-wrapper">
+                      <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="card-footer">
+              <button className="select-btn">
+                CHOOSE PLAN
+                <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
           </div>
         ))}
       </div>
