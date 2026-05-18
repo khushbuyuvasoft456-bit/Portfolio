@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
+  const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
 
@@ -16,11 +17,13 @@ const Contact = () => {
     const templateId = 'template_hfv1dae';
     const publicKey = 'gm_-aTkpLN0xErJkS';
 
-    emailjs.sendForm(serviceId, templateId, e.target, publicKey)
+    emailjs.sendForm(serviceId, templateId, form.current, {
+      publicKey: publicKey,
+    })
       .then((result) => {
         setIsSending(false);
         setStatus({ type: 'success', message: 'Message sent successfully!' });
-        e.target.reset();
+        form.current.reset();
         setTimeout(() => setStatus({ type: '', message: '' }), 5000);
       }, (error) => {
         setIsSending(false);
@@ -63,7 +66,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form ref={form} className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="input-field">
                 <span className="input-icon">👤</span>
@@ -114,7 +117,7 @@ const Contact = () => {
           <div className="map-overlay">
             <div className="location-pin-container">
               <div className="map-card">
-                <h4>KHUSHBU GURJAR</h4>
+                <h4>KHUSHBU GURJAR </h4>
                 <p>Nemawar Road Dudhiya Indore,<br /> Madhya Pradesh, India.</p>
               </div>
               <div className="pin-wrapper">

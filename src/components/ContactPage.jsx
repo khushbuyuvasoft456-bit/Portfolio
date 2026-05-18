@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './ContactPage.css';
 
 const ContactPage = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,7 +31,9 @@ const ContactPage = () => {
     const templateId = 'template_hfv1dae'; // Replace with your Template ID
     const publicKey = 'gm_-aTkpLN0xErJkS'; // Replace with your Public Key
 
-    emailjs.sendForm(serviceId, templateId, e.target, publicKey)
+    emailjs.sendForm(serviceId, templateId, form.current, {
+      publicKey: publicKey,
+    })
       .then((result) => {
         setIsSending(false);
         setStatus({ type: 'success', message: 'Message sent successfully!' });
@@ -118,7 +121,7 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-form-section">
-              <form className="contact-page-form" onSubmit={handleSubmit}>
+              <form ref={form} className="contact-page-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
