@@ -9,6 +9,7 @@ import Services from './components/Services';
 import ServicesPage from './components/ServicesPage';
 import Portfolio from './components/Portfolio';
 import PortfolioPage from './components/PortfolioPage';
+import ProjectDetails from './components/ProjectDetails';
 import FAQPage from './components/FAQPage';
 import ContactPage from './components/ContactPage';
 import PricingPage from './components/PricingPage';
@@ -119,6 +120,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:id" element={<ProjectDetails />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
