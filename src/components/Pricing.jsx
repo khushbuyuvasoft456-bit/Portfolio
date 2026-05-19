@@ -57,7 +57,7 @@ const Pricing = () => {
           <div className="line"></div>
         </div>
         <p className="intro-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t empor 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t empor
           incididunt ut labore et dolore magna aliqua. quis nostrud exercitation.
         </p>
       </div>
@@ -65,27 +65,38 @@ const Pricing = () => {
       <div className="pricing-container">
         {pricingData.map((plan) => (
           <div key={plan.id} className={`pricing-card ${plan.isFeatured ? 'featured' : ''}`}>
-            <div className="card-bg-letter">{plan.bgLetter}</div>
-            
-            <h4 className="plan-title">{plan.title}</h4>
-            
+            {plan.isFeatured && <div className="popular-badge">MOST POPULAR</div>}
+
+            <div className="plan-header">
+              <h4 className="plan-title">{plan.title}</h4>
+            </div>
+
             <div className="price-container">
               <span className="currency">$</span>
               <span className="price">{plan.price}</span>
+              <span className="price-period">/mo</span>
             </div>
-            
+
             <ul className="features-list">
               {plan.features.map((feature, idx) => (
                 <li key={idx}>
-                  <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  {feature}
+                  <div className="icon-wrapper">
+                    <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
-            
-            <button className="select-btn">SELECT</button>
+
+            <button className="select-btn">
+              <span>GET STARTED</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="btn-arrow">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
           </div>
         ))}
       </div>
