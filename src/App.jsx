@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { Routes, Route, NavLink, Link as RouterLink } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
@@ -6,9 +6,13 @@ import './App.css';
 import bgImage from './assets/designer_bg.png';
 import About from './components/About';
 import Services from './components/Services';
+import ServicesPage from './components/ServicesPage';
 import Portfolio from './components/Portfolio';
 import PortfolioPage from './components/PortfolioPage';
+import ProjectDetails from './components/ProjectDetails';
 import FAQPage from './components/FAQPage';
+import ContactPage from './components/ContactPage';
+import PricingPage from './components/PricingPage';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Clients from './components/Clients';
@@ -18,8 +22,9 @@ import Pricing from './components/Pricing';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import HireMeModal from './components/HireMeModal';
 
-const Navbar = () => (
+const Navbar = ({ onHireMeClick }) => (
   <header className="navbar">
     <div className="logo-container">
       <div className="logo-icon">
@@ -36,15 +41,15 @@ const Navbar = () => (
     <nav className="nav-links">
       <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
       <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
-      <HashLink smooth to="/#services" activeClassName="active">OUR SERVICES</HashLink>
+      <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>OUR SERVICES</NavLink>
       <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')}>PORTFOLIO</NavLink>
-      <HashLink smooth to="/#pricing" activeClassName="active">PRICING</HashLink>
+      <NavLink to="/pricing" className={({ isActive }) => (isActive ? 'active' : '')}>PRICING</NavLink>
       <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
       <NavLink to="/faq" className={({ isActive }) => (isActive ? 'active' : '')}>FAQ</NavLink>
-      <HashLink smooth to="/#contact" activeClassName="active">CONTACT</HashLink>
+      <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>CONTACT</NavLink>
     </nav>
 
-    <button className="hire-btn nav-btn">
+    <button className="hire-btn nav-btn" onClick={onHireMeClick}>
       <svg className="user-icon" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg>
@@ -53,7 +58,7 @@ const Navbar = () => (
   </header>
 );
 
-const Home = () => (
+const Home = ({ onHireMeClick }) => (
   <>
     <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="overlay"></div>
@@ -64,7 +69,7 @@ const Home = () => (
             Lorem ipsum dolor sit amet, consectetur Iscing elit. Cras lacinia
             magna vel molestie faucibus
           </p>
-          <button className="hire-btn main-btn">HIRE ME</button>
+          <button className="hire-btn main-btn" onClick={onHireMeClick}>HIRE ME</button>
         </div>
       </main>
 
@@ -100,21 +105,34 @@ const Home = () => (
   </>
 );
 
+
+
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   return (
     <>
-      <Navbar />
+      <Navbar onHireMeClick={toggleModal} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:id" element={<ProjectDetails />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Routes>
+      <HireMeModal isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );
 }
 
 export default App;
+
+
 
 

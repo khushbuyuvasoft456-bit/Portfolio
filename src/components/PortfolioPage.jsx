@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './PortfolioPage.css';
 
 import imgClock from '../assets/portfolio_clock.png';
@@ -21,8 +22,8 @@ const PortfolioPage = () => {
   const [filter, setFilter] = useState('ALL');
   const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
 
-  const filteredItems = filter === 'ALL' 
-    ? portfolioItems 
+  const filteredItems = filter === 'ALL'
+    ? portfolioItems
     : portfolioItems.filter(item => item.category === filter);
 
   return (
@@ -37,7 +38,7 @@ const PortfolioPage = () => {
             <span className="line"></span>
           </div>
           <p className="header-text">
-            Explore my latest projects and creative works. Each project is crafted with precision 
+            Explore my latest projects and creative works. Each project is crafted with precision
             and a focus on user experience, combining modern design with functional excellence.
           </p>
         </div>
@@ -47,9 +48,9 @@ const PortfolioPage = () => {
         <div className="container">
           <ul className="filter-list">
             {categories.map(cat => (
-              <li 
-                key={cat} 
-                className={filter === cat ? 'active' : ''} 
+              <li
+                key={cat}
+                className={filter === cat ? 'active' : ''}
                 onClick={() => setFilter(cat)}
               >
                 {cat}
@@ -70,7 +71,7 @@ const PortfolioPage = () => {
                     <div className="overlay-content">
                       <span className="item-category">{item.category}</span>
                       <h3>{item.title}</h3>
-                      <button className="view-details-btn">VIEW DETAILS</button>
+                      <Link to={`/portfolio/${item.id}`} className="view-details-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>VIEW DETAILS</Link>
                     </div>
                   </div>
                 </div>
@@ -81,7 +82,7 @@ const PortfolioPage = () => {
               </div>
             ))}
           </div>
-          
+
           {filteredItems.length === 0 && (
             <div className="no-results">
               <p>No projects found in this category.</p>
