@@ -6,6 +6,7 @@ import imgClock from '../assets/portfolio_clock.png';
 import imgDecanter from '../assets/portfolio_decanter.png';
 import imgHeadphones from '../assets/portfolio_headphones.png';
 
+const categoriesList = ['WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
 const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
   let img = imgClock;
   let alt = "Minimalist desk clock";
@@ -16,15 +17,21 @@ const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
     img = imgHeadphones;
     alt = "Modern headphones";
   }
-  return { id: index, img, alt };
+  const category = categoriesList[index % categoriesList.length];
+  return { id: index, img, alt, category };
 });
 
 const Portfolio = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [filter, setFilter] = useState('ALL');
   const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
-  
-  const totalPages = 8;
-  const currentItems = allPortfolioItems.slice(currentPage * 3, currentPage * 3 + 3);
+
+  const filteredItems = filter === 'ALL'
+    ? allPortfolioItems
+    : allPortfolioItems.filter(item => item.category === filter);
+
+  const totalPages = Math.ceil(filteredItems.length / 3) || 1;
+  const currentItems = filteredItems.slice(currentPage * 3, currentPage * 3 + 3);
 
   const nextSlide = () => setCurrentPage((p) => (p + 1) % totalPages);
   const prevSlide = () => setCurrentPage((p) => (p === 0 ? totalPages - 1 : p - 1));
@@ -35,9 +42,9 @@ const Portfolio = () => {
         <span className="subtitle">What I did</span>
         <h2>PORTFOLIO</h2>
         <div className="separator">
-           <span className="line"></span>
-           <span className="hexagon"></span>
-           <span className="line"></span>
+          <span className="line"></span>
+          <span className="hexagon"></span>
+          <span className="line"></span>
         </div>
         <p className="intro-text">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t empor incididunt ut <br />
@@ -48,7 +55,12 @@ const Portfolio = () => {
       <div className="portfolio-filter-container">
         <ul className="portfolio-filter">
           {categories.map((cat, index) => (
-            <li key={cat} className={index === 0 ? 'active' : ''}>
+            <li
+              key={cat}
+              className={filter === cat ? 'active' : ''}
+              onClick={() => { setFilter(cat); setCurrentPage(0); }}
+              style={{ cursor: 'pointer' }}
+            >
               {cat}
             </li>
           ))}
@@ -71,8 +83,8 @@ const Portfolio = () => {
         </button>
         <div className="page-dots">
           {Array.from({ length: totalPages }).map((_, index) => (
-            <span 
-              key={index} 
+            <span
+              key={index}
               className={`dot ${currentPage === index ? 'active' : ''}`}
               onClick={() => setCurrentPage(index)}
             >
