@@ -24,7 +24,18 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import HireMeModal from './components/HireMeModal';
 
-const Navbar = ({ onHireMeClick }) => (
+const Navbar = ({ onHireMeClick }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
   <header className="navbar">
     <div className="logo-container">
       <div className="logo-icon">
@@ -38,15 +49,30 @@ const Navbar = ({ onHireMeClick }) => (
       </div>
     </div>
 
-    <nav className="nav-links">
-      <HashLink smooth to="/#home" activeClassName="active">HOME</HashLink>
-      <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>ABOUT US</NavLink>
-      <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')}>OUR SERVICES</NavLink>
-      <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')}>PORTFOLIO</NavLink>
-      <NavLink to="/pricing" className={({ isActive }) => (isActive ? 'active' : '')}>PRICING</NavLink>
-      <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>BLOG</NavLink>
-      <NavLink to="/faq" className={({ isActive }) => (isActive ? 'active' : '')}>FAQ</NavLink>
-      <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>CONTACT</NavLink>
+    <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+      {isMobileMenuOpen ? (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      )}
+    </button>
+
+    <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+      <HashLink smooth to="/#home" activeClassName="active" onClick={closeMobileMenu}>HOME</HashLink>
+      <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>ABOUT US</NavLink>
+      <NavLink to="/services" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>OUR SERVICES</NavLink>
+      <NavLink to="/portfolio" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>PORTFOLIO</NavLink>
+      <NavLink to="/pricing" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>PRICING</NavLink>
+      <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>BLOG</NavLink>
+      <NavLink to="/faq" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>FAQ</NavLink>
+      <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMobileMenu}>CONTACT</NavLink>
     </nav>
 
     <button className="hire-btn nav-btn" onClick={onHireMeClick}>
@@ -56,7 +82,8 @@ const Navbar = ({ onHireMeClick }) => (
       HIRE ME
     </button>
   </header>
-);
+  );
+};
 
 const Home = ({ onHireMeClick }) => (
   <>
