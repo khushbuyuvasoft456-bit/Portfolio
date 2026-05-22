@@ -1,6 +1,6 @@
 .pricing-page {
-    background-color: #111;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--text-color);
     min-height: 100vh;
 }
 
@@ -44,7 +44,7 @@
 .pricing-header .line {
     width: 60px;
     height: 1px;
-    background-color: #333;
+    background-color: var(--text-color);
 }
 
 .pricing-header .hexagon {
@@ -57,7 +57,7 @@
 .header-text {
     max-width: 700px;
     margin: 0 auto;
-    color: #999;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -73,14 +73,14 @@
 }
 
 .pricing-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-color);
     padding: 50px 40px;
     border-radius: 12px;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
 }
 
 .pricing-card:hover {
@@ -152,7 +152,7 @@
 
 .plan-features li {
     padding: 10px 0;
-    color: #999;
+    color: var(--text-muted);
     font-size: 0.95rem;
     display: flex;
     align-items: center;
@@ -169,7 +169,7 @@
     width: 100%;
     background-color: transparent;
     border: 2px solid white;
-    color: white;
+    color: var(--text-color);
     padding: 1rem;
     font-weight: 800;
     font-size: 0.85rem;
@@ -179,19 +179,19 @@
 }
 
 .choose-plan-btn:hover {
-    background-color: white;
-    color: #111;
+    background-color: var(--section-bg);
+    color: var(--text-color);
 }
 
 .featured .choose-plan-btn {
     background-color: var(--yellow-accent, #FFC815);
     border-color: var(--yellow-accent, #FFC815);
-    color: #111;
+    color: var(--text-color);
 }
 
 .featured .choose-plan-btn:hover {
-    background-color: white;
-    border-color: white;
+    background-color: var(--section-bg);
+    border-color: var(--text-color);
 }
 
 /* FAQ Section */
@@ -228,7 +228,7 @@
 }
 
 .faq-item p {
-    color: #888;
+    color: var(--text-muted);
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -243,7 +243,7 @@
     padding: 60px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
 }
 
 .quote-box h2 {
@@ -252,7 +252,7 @@
 }
 
 .quote-box p {
-    color: #999;
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto 2rem;
     font-size: 1.1rem;
@@ -260,7 +260,7 @@
 
 .quote-btn {
     background-color: var(--yellow-accent, #FFC815);
-    color: #111;
+    color: var(--text-color);
     border: none;
     padding: 1.2rem 3rem;
     font-weight: 800;

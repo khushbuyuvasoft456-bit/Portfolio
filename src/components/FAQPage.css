@@ -1,6 +1,6 @@
 .faq-page {
-    background-color: #111;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--text-color);
     min-height: 100vh;
 }
 
@@ -44,7 +44,7 @@
 .faq-header .line {
     width: 60px;
     height: 1px;
-    background-color: #333;
+    background-color: var(--text-color);
 }
 
 .faq-header .hexagon {
@@ -57,7 +57,7 @@
 .header-text {
     max-width: 700px;
     margin: 0 auto;
-    color: #999;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .faq-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-color);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -89,7 +89,7 @@
 }
 
 .faq-card:hover, .faq-card.open {
-    background-color: #222;
+    background-color: var(--text-color);
 }
 
 .faq-card.open {
@@ -128,7 +128,7 @@
 }
 
 .faq-card-body p {
-    color: #999;
+    color: var(--text-muted);
     line-height: 1.7;
     font-size: 0.95rem;
 }
@@ -142,7 +142,7 @@
 
 .contact-card {
     background-color: var(--yellow-accent, #FFC815);
-    color: #111;
+    color: var(--text-color);
     padding: 40px;
     border-radius: 12px;
     text-align: center;
@@ -162,8 +162,8 @@
 }
 
 .contact-btn {
-    background-color: #111;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--text-color);
     border: none;
     padding: 1rem 2rem;
     font-weight: 700;
@@ -178,7 +178,7 @@
 }
 
 .quick-stats {
-    background-color: #1a1a1a;
+    background-color: var(--bg-color);
     padding: 30px;
     border-radius: 12px;
     display: flex;
@@ -218,7 +218,7 @@
 }
 
 .faq-cta p {
-    color: #999;
+    color: var(--text-muted);
     margin-bottom: 2.5rem;
 }
 
@@ -235,7 +235,7 @@
 }
 
 .cta-btn:hover {
-    background-color: white;
+    background-color: var(--section-bg);
     transform: translateY(-3px);
 }
 

@@ -14,13 +14,13 @@
   }
   
   .work-section {
-    background-color: #0b0b0b;
-    color: #ffffff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   
   .education-section {
     background-color: #fafafa;
-    color: #111111;
+    color: var(--text-color);
   }
   
   /* Headers */
@@ -42,11 +42,11 @@
   }
   
   .light-line {
-    background-color: #ffffff;
+    background-color: var(--section-bg);
   }
   
   .dark-line {
-    background-color: #111111;
+    background-color: var(--section-bg);
   }
   
   .resume-intro, .resume-intro-color {
@@ -57,7 +57,7 @@
   }
   
   .resume-intro-color {
-    color: #888888;
+    color: var(--text-muted);
   }
   
   .resume-intro {
@@ -84,11 +84,11 @@
   }
   
   .dark-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-color);
   }
   
   .light-card {
-    background-color: #ffffff;
+    background-color: var(--section-bg);
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   }
   
@@ -105,7 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #111111;
+    color: var(--text-color);
   }
   
   .yellow-circle-icon svg {
@@ -119,7 +119,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9ca3af;
+    color: var(--text-muted);
   }
   
   .gray-shield-icon svg {
@@ -142,7 +142,7 @@
   
   .meta-company, .meta-school {
     font-size: 0.9rem;
-    color: #999999;
+    color: var(--text-muted);
     margin-bottom: 0.2rem;
   }
   
@@ -159,7 +159,7 @@
   }
   
   .dark-text {
-    color: #111111;
+    color: var(--text-color);
   }
   
   .meta-year {
@@ -170,7 +170,7 @@
   .card-desc {
     font-size: 0.85rem;
     line-height: 1.7;
-    color: #888888;
+    color: var(--text-muted);
     margin: 0;
   }
   

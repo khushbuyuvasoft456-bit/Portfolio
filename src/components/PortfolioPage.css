@@ -1,6 +1,6 @@
 .portfolio-page {
-    background-color: #111;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--text-color);
     min-height: 100vh;
     padding-top: 2rem; /* Reduced because navbar is already there in App.jsx */
 }
@@ -45,7 +45,7 @@
 .page-header .line {
     width: 60px;
     height: 1px;
-    background-color: #333;
+    background-color: var(--text-color);
 }
 
 .page-header .hexagon {
@@ -58,14 +58,14 @@
 .header-text {
     max-width: 700px;
     margin: 0 auto;
-    color: #999;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
 /* Filter Section */
 .filter-section {
     padding: 2rem 0;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .filter-list {
@@ -83,7 +83,7 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: color 0.3s ease;
-    color: #666;
+    color: var(--text-muted);
 }
 
 .filter-list li:hover,
@@ -103,7 +103,7 @@
 }
 
 .portfolio-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-color);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -181,7 +181,7 @@
 }
 
 .view-details-btn:hover {
-    background-color: white;
+    background-color: var(--section-bg);
 }
 
 .card-info {
@@ -194,7 +194,7 @@
 }
 
 .card-info p {
-    color: #999;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -203,7 +203,7 @@
 .no-results {
     text-align: center;
     padding: 4rem 0;
-    color: #666;
+    color: var(--text-muted);
 }
 
 /* CTA Section */
@@ -219,7 +219,7 @@
 }
 
 .cta-section p {
-    color: #999;
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
