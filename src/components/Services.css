@@ -14,7 +14,7 @@
   
   .section-header .subtitle {
     font-style: italic;
-    color: #888888;
+    color: var(--text-muted);
     font-size: 0.95rem;
     font-weight: 500;
   }
@@ -22,7 +22,7 @@
   .section-header h2 {
     font-weight: 900;
     font-size: 2.8rem;
-    color: #111111;
+    color: var(--text-color);
     margin-top: 0.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -52,7 +52,7 @@
   
   .section-header .intro-text {
     max-width: 650px;
-    color: #9ca3af;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.6;
     font-weight: 500;
@@ -66,15 +66,15 @@
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: #ffffff;
+    background-color: var(--section-bg);
   }
   
   .service-card {
     display: flex;
     gap: 1.5rem;
     padding: 3rem 2rem;
-    border-right: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease;
   }
   
@@ -112,7 +112,7 @@
   .service-content h4 {
     font-size: 1.05rem;
     font-weight: 800;
-    color: #111111;
+    color: var(--text-color);
     margin-bottom: 0.8rem;
     margin-top: 0.2rem;
     text-transform: uppercase;
@@ -120,7 +120,7 @@
   
   .service-content p {
     font-size: 0.85rem;
-    color: #9ca3af;
+    color: var(--text-muted);
     line-height: 1.7;
     margin: 0;
   }
@@ -131,13 +131,13 @@
       grid-template-columns: repeat(2, 1fr);
     }
     .service-card:nth-child(3n) {
-      border-right: 1px solid #f0f0f0;
+      border-right: 1px solid var(--border-color);
     }
     .service-card:nth-child(2n) {
       border-right: none;
     }
     .service-card:nth-child(n+3) {
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid var(--border-color);
     }
     .service-card:nth-child(n+5) {
       border-bottom: none;
@@ -150,7 +150,7 @@
     }
     .service-card {
       border-right: none !important;
-      border-bottom: 1px solid #f0f0f0 !important;
+      border-bottom: 1px solid var(--border-color) !important;
     }
     .service-card:last-child {
       border-bottom: none !important;

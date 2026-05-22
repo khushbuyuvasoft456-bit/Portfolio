@@ -55,19 +55,19 @@ const Testimonial = () => {
 
       <div className="testimonial-container">
         {/* Slider Track */}
-        <div 
+        <div
           className="testimonial-grid"
-          style={{ 
+          style={{
             transform: `translateX(calc(${(1 - currentIndex)} * (var(--card-width, 450px) + 30px)))`,
             transition: 'transform 0.4s ease-out'
           }}
         >
           {testimonialsData.map((item, index) => {
             const isActive = index === currentIndex;
-            
+
             return (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className={`testimonial-item ${isActive ? 'active' : ''}`}
                 onClick={() => setCurrentIndex(index)}
               >
@@ -96,8 +96,8 @@ const Testimonial = () => {
 
         {/* Dynamic Controls */}
         <div className="carousel-dots">
-          <button 
-            className="nav-arrow prev" 
+          <button
+            className="nav-arrow prev"
             onClick={handlePrev}
             style={{ opacity: currentIndex === 0 ? 0.3 : 1, cursor: currentIndex === 0 ? 'default' : 'pointer' }}
           >
@@ -105,17 +105,17 @@ const Testimonial = () => {
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
-          
+
           {testimonialsData.map((_, index) => (
-            <span 
-              key={index} 
+            <span
+              key={index}
               className={`dot ${index === currentIndex ? 'active-dot' : ''}`}
               onClick={() => setCurrentIndex(index)}
             ></span>
           ))}
 
-          <button 
-            className="nav-arrow next" 
+          <button
+            className="nav-arrow next"
             onClick={handleNext}
             style={{ opacity: currentIndex === testimonialsData.length - 1 ? 0.3 : 1, cursor: currentIndex === testimonialsData.length - 1 ? 'default' : 'pointer' }}
           >

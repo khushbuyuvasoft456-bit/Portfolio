@@ -1,7 +1,7 @@
 .blog-section {
-    background-color: #0b0b0b;
+    background-color: var(--bg-color);
     padding: 6rem 5%;
-    color: #ffffff;
+    color: var(--text-color);
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
@@ -13,14 +13,14 @@
 .blog-section h2 {
     font-size: 2.8rem;
     font-weight: 900;
-    color: #ffffff;
+    color: var(--text-color);
     margin-top: 0.5rem;
     letter-spacing: 1px;
 }
 
 .blog-section .subtitle {
     font-style: italic;
-    color: #888888;
+    color: var(--text-muted);
     font-size: 0.95rem;
     font-weight: 500;
 }
@@ -50,7 +50,7 @@
 .blog-section .intro-text {
     max-width: 800px;
     margin: 0 auto;
-    color: #9ca3af;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -107,7 +107,7 @@
 .blog-title {
     font-size: 1.25rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text-color);
     line-height: 1.4;
 }
 
@@ -120,7 +120,7 @@
     padding: 0.8rem 2.5rem;
     border: 2px solid #ffffff;
     background-color: transparent;
-    color: #ffffff;
+    color: var(--text-color);
     border-radius: 50px;
     font-weight: 800;
     font-size: 0.75rem;
@@ -129,7 +129,7 @@
 }
 
 .view-all-btn:hover {
-    background-color: #ffffff;
+    background-color: var(--section-bg);
     color: #0b0b0b;
 }
 

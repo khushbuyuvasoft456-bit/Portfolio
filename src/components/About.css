@@ -1,6 +1,6 @@
 .about-section {
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--section-bg);
+    color: var(--text-color);
     padding: 6rem 5%;
     font-family: 'Poppins', sans-serif;
   }
@@ -15,7 +15,7 @@
   
   .subtitle {
     font-style: italic;
-    color: #888888;
+    color: var(--text-muted);
     font-size: 0.95rem;
     font-weight: 500;
   }
@@ -23,7 +23,7 @@
   .about-header h2 {
     font-weight: 900;
     font-size: 2.8rem;
-    color: #111111;
+    color: var(--text-color);
     margin-top: 0.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -48,12 +48,12 @@
     height: 12px;
     border: 2px solid var(--yellow-accent, #FFC815);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-color: white;
+    background-color: var(--section-bg);
   }
   
   .intro-text {
     max-width: 800px;
-    color: #9ca3af; /* light gray as per the image */
+    color: var(--text-muted); /* light gray as per the image */
     font-size: 1rem;
     line-height: 1.6;
     font-weight: 500;
@@ -94,7 +94,7 @@
   .text-column h3 {
     font-size: 1.4rem;
     font-weight: 900;
-    color: #222222;
+    color: var(--text-color);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -102,7 +102,7 @@
   
   .text-column p {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 1.2rem;
     font-weight: 400;
@@ -126,9 +126,9 @@
     justify-content: flex-start;
     align-items: baseline;
     padding: 0.8rem 0;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border-color);
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-muted);
   }
   
   .info-list li .label {
@@ -164,14 +164,14 @@
   
   .outline-btn {
     border: 2px solid var(--yellow-accent, #FFC815);
-    color: #111111;
+    color: var(--text-color);
     background: transparent;
   }
   
   .solid-btn {
     border: 2px solid var(--yellow-accent, #FFC815);
     background: var(--yellow-accent, #FFC815);
-    color: #111111;
+    color: var(--text-color);
   }
   
   .icon-circle {
@@ -185,12 +185,12 @@
   
   .yellow-circle {
     background-color: var(--yellow-accent, #FFC815);
-    color: #111111;
+    color: var(--text-color);
   }
   
   .white-circle {
-    background-color: #ffffff;
-    color: #111111;
+    background-color: var(--section-bg);
+    color: var(--text-color);
   }
   
   /* Responsive */

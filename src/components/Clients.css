@@ -1,9 +1,9 @@
 .clients-section {
-    background-color: #ffffff;
+    background-color: var(--section-bg);
     padding: 2rem 0;
     width: 100%;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     overflow: hidden;
   }
   
@@ -24,8 +24,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1px solid #eaeaea;
-    background: #ffffff;
+    border: 1px solid var(--border-color);
+    background: var(--section-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,9 +79,9 @@
     width: 15rem; /* ~240px wide */
     height: 100px; /* ~100px tall */
     flex-shrink: 0;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
-    background-color: #ffffff;
+    background-color: var(--section-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +99,7 @@
   .client-card:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transform: translateY(-2px);
-    border-color: #e2e2e2;
+    border-color: var(--border-color);
   }
   
   /* Make middle/active item stand out theoretically */

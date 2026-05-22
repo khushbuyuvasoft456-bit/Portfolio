@@ -1,5 +1,6 @@
 .stats-section {
-  background-color: #212121; /* Dark background as seen in the image */
+  background-color: #212121;
+  /* Dark background as seen in the image */
   padding: 80px 0;
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -44,11 +45,12 @@
 .stat-hexagon svg {
   width: 32px;
   height: 32px;
-  color: #1a1a1a; /* Dark icon inside yellow hexagon */
+  color: #1a1a1a;
+  /* Dark icon inside yellow hexagon */
 }
 
 .stat-number {
-  color: #ffffff;
+  /* color: var(--text-color); */
   font-size: 42px;
   font-weight: 800;
   margin: 0 0 5px 0;
@@ -57,7 +59,8 @@
 }
 
 .stat-label {
-  color: #9ca3af; /* Light gray text for labels */
+  color: var(--text-muted);
+  /* Light gray text for labels */
   font-size: 0.9rem;
   font-weight: 500;
   margin: 0;
