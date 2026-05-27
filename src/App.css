@@ -312,13 +312,15 @@
     background-color: #111111;
     flex-direction: column;
     justify-content: center;
-    transition: right 0.3s ease;
+    transition: right 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
   }
 
   .nav-links.mobile-open {
     right: 0;
+    visibility: visible;
   }
 }
 
