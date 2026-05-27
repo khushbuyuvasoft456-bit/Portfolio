@@ -52,3 +52,11 @@ button {
   background: none;
   color: inherit;
 }
+
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--yellow-accent);
+  outline-offset: 4px;
+}

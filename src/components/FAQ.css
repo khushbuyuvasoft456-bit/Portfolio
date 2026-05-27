@@ -143,8 +143,15 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -153,11 +160,11 @@
         flex-direction: column;
         text-align: center;
     }
-    
+
     .faq-visuals {
         margin-bottom: 3rem;
     }
-    
+
     .faq-answer-row {
         padding-left: 1.5rem;
     }
