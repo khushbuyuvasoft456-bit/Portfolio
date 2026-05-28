@@ -51,8 +51,8 @@ const Navbar = ({ onHireMeClick }) => {
         </div>
       </HashLink>
 
-      <button 
-        className="mobile-menu-btn" 
+      <button
+        className="mobile-menu-btn"
         onClick={toggleMobileMenu}
         aria-expanded={isMobileMenuOpen}
         aria-controls="mobile-menu"

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Portfolio.css';
+import './SkeletonLoader.css';
 
 import imgClock from '../assets/portfolio_clock.png';
 import imgDecanter from '../assets/portfolio_decanter.png';
@@ -24,7 +25,14 @@ const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
 const Portfolio = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState('ALL');
+  const [isLoading, setIsLoading] = useState(true);
   const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
+
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, [filter, currentPage]);
 
   const filteredItems = filter === 'ALL'
     ? allPortfolioItems
@@ -68,11 +76,16 @@ const Portfolio = () => {
       </div>
 
       <div className="portfolio-gallery">
-        {currentItems.map((item) => (
-          <div className="gallery-item fade-in" key={item.id}>
-            <img src={item.img} alt={item.alt} />
-          </div>
-        ))}
+        {isLoading 
+          ? Array.from({ length: currentItems.length || 3 }).map((_, index) => (
+              <div className="gallery-item skeleton fade-in" key={`skeleton-${index}`}></div>
+            ))
+          : currentItems.map((item) => (
+              <div className="gallery-item fade-in" key={item.id}>
+                <img src={item.img} alt={item.alt} />
+              </div>
+            ))
+        }
       </div>
 
       <div className="portfolio-pagination">
