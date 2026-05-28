@@ -1,27 +1,38 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import './ContactPage.css';
+
+const contactPageSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().min(1, 'Email is required').email('Invalid email address'),
+  subject: z.string().optional(),
+  message: z.string().min(1, 'Message is required'),
+});
 
 const ContactPage = () => {
   const form = useRef();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm({
+    resolver: zodResolver(contactPageSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    }
+  });
 
-  const handleSubmit = (e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault();
     setIsSending(true);
     setStatus({ type: '', message: '' });
@@ -37,7 +48,7 @@ const ContactPage = () => {
       .then((result) => {
         setIsSending(false);
         setStatus({ type: 'success', message: 'Message sent successfully!' });
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        reset();
       }, (error) => {
         setIsSending(false);
         setStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
@@ -121,45 +132,37 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-form-section">
-              <form ref={form} className="contact-page-form" onSubmit={handleSubmit}>
+              <form ref={form} className="contact-page-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                   <input
                     type="text"
-                    name="name"
                     placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
+                    {...register('name')}
                   />
+                  {errors.name && <span className="error-text-page">{errors.name.message}</span>}
                 </div>
                 <div className="form-group">
                   <input
                     type="email"
-                    name="email"
                     placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
+                    {...register('email')}
                   />
+                  {errors.email && <span className="error-text-page">{errors.email.message}</span>}
                 </div>
                 <div className="form-group">
                   <input
                     type="text"
-                    name="subject"
                     placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    {...register('subject')}
                   />
                 </div>
                 <div className="form-group">
                   <textarea
-                    name="message"
                     placeholder="Your Message"
                     rows="6"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  ></textarea>
+                    {...register('message')}
+                  ></textarea>.0
+4r                  {errors.message && <span className="error-text-page">{errors.message.message}</span>}
                 </div>
                 <button type="submit" className="send-message-btn" disabled={isSending}>
                   {isSending ? 'SENDING...' : 'SEND MESSAGE'}

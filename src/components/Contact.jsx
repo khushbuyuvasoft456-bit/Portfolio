@@ -1,13 +1,40 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import './Contact.css';
+
+const contactSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  phone: z.string().optional(),
+  email: z.string().min(1, 'Email is required').email('Invalid email address'),
+  interest: z.string().optional(),
+  message: z.string().min(1, 'Message is required'),
+});
 
 const Contact = () => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      email: '',
+      interest: '',
+      message: ''
+    }
+  });
+
+  const onSubmit = (data, e) => {
     e.preventDefault();
     setIsSending(true);
     setStatus({ type: '', message: '' });
@@ -23,7 +50,7 @@ const Contact = () => {
       .then((result) => {
         setIsSending(false);
         setStatus({ type: 'success', message: 'Message sent successfully!' });
-        form.current.reset();
+        reset();
         setTimeout(() => setStatus({ type: '', message: '' }), 5000);
       }, (error) => {
         setIsSending(false);
@@ -66,38 +93,51 @@ const Contact = () => {
             </div>
           </div>
 
-          <form ref={form} className="contact-form" onSubmit={handleSubmit}>
+          <form ref={form} className="contact-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
-              <div className="input-field">
-                <span className="input-icon">👤</span>
-                <input type="text" name="name" placeholder="Name" required />
+              <div className="input-group">
+                <div className="input-field">
+                  <span className="input-icon">👤</span>
+                  <input type="text" placeholder="Name" {...register('name')} />
+                </div>
+                {errors.name && <span className="error-text">{errors.name.message}</span>}
               </div>
-              <div className="input-field">
-                <span className="input-icon">📱</span>
-                <input type="text" name="phone" placeholder="Phone" />
+              <div className="input-group">
+                <div className="input-field">
+                  <span className="input-icon">📱</span>
+                  <input type="text" placeholder="Phone" {...register('phone')} />
+                </div>
               </div>
             </div>
 
             <div className="form-row">
-              <div className="input-field">
-                <span className="input-icon">✉️</span>
-                <input type="email" name="email" placeholder="Email" required />
+              <div className="input-group">
+                <div className="input-field">
+                  <span className="input-icon">✉️</span>
+                  <input type="email" placeholder="Email" {...register('email')} />
+                </div>
+                {errors.email && <span className="error-text">{errors.email.message}</span>}
               </div>
-              <div className="input-field select-field">
-                <span className="input-icon">☰</span>
-                <select name="interest" defaultValue="">
-                  <option value="" disabled>What are you interested in?</option>
-                  <option value="web-design">Web Design</option>
-                  <option value="web-dev">Web Development</option>
-                  <option value="app-dev">App Development</option>
-                  <option value="other">Other</option>
-                </select>
+              <div className="input-group">
+                <div className="input-field select-field">
+                  <span className="input-icon">☰</span>
+                  <select defaultValue="" {...register('interest')}>
+                    <option value="" disabled>What are you interested in?</option>
+                    <option value="web-design">Web Design</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="app-dev">App Development</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
               </div>
             </div>
 
-            <div className="input-field textarea-field">
-              <span className="input-icon">📝</span>
-              <textarea name="message" placeholder="Describe your project" required></textarea>
+            <div className="input-group">
+              <div className="input-field textarea-field">
+                <span className="input-icon">📝</span>
+                <textarea placeholder="Describe your project" {...register('message')}></textarea>
+              </div>
+              {errors.message && <span className="error-text">{errors.message.message}</span>}
             </div>
 
             <button type="submit" className="submit-btn" disabled={isSending}>
