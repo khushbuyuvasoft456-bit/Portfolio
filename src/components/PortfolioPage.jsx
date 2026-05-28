@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './PortfolioPage.css';
+import './SkeletonLoader.css';
 
 import imgClock from '../assets/portfolio_clock.png';
 import imgDecanter from '../assets/portfolio_decanter.png';
@@ -20,7 +21,14 @@ const portfolioItems = [
 
 const PortfolioPage = () => {
   const [filter, setFilter] = useState('ALL');
+  const [isLoading, setIsLoading] = useState(true);
   const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
+
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, [filter]);
 
   const filteredItems = filter === 'ALL'
     ? portfolioItems
@@ -63,24 +71,36 @@ const PortfolioPage = () => {
       <main className="portfolio-grid-section">
         <div className="container">
           <div className="portfolio-grid">
-            {filteredItems.map(item => (
-              <div className="portfolio-card" key={item.id}>
-                <div className="card-image">
-                  <img src={item.img} alt={item.title} />
-                  <div className="card-overlay">
-                    <div className="overlay-content">
-                      <span className="item-category">{item.category}</span>
-                      <h3>{item.title}</h3>
-                      <Link to={`/portfolio/${item.id}`} className="view-details-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>VIEW DETAILS</Link>
+            {isLoading 
+              ? Array.from({ length: filteredItems.length || 6 }).map((_, index) => (
+                  <div className="portfolio-card" key={`skeleton-${index}`}>
+                    <div className="card-image skeleton"></div>
+                    <div className="card-info">
+                      <div className="skeleton skeleton-text skeleton-title"></div>
+                      <div className="skeleton skeleton-text skeleton-desc"></div>
+                      <div className="skeleton skeleton-text skeleton-desc"></div>
                     </div>
                   </div>
-                </div>
-                <div className="card-info">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-            ))}
+                ))
+              : filteredItems.map(item => (
+                  <div className="portfolio-card" key={item.id}>
+                    <div className="card-image">
+                      <img src={item.img} alt={item.title} />
+                      <div className="card-overlay">
+                        <div className="overlay-content">
+                          <span className="item-category">{item.category}</span>
+                          <h3>{item.title}</h3>
+                          <Link to={`/portfolio/${item.id}`} className="view-details-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>VIEW DETAILS</Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-info">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                ))
+            }
           </div>
 
           {filteredItems.length === 0 && (

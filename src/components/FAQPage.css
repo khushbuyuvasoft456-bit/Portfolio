@@ -31,6 +31,7 @@
     font-weight: 800;
     letter-spacing: 2px;
     margin-bottom: 1rem;
+    color: #000000;
 }
 
 .faq-header .separator {
@@ -88,7 +89,8 @@
     border-left: 4px solid transparent;
 }
 
-.faq-card:hover, .faq-card.open {
+.faq-card:hover,
+.faq-card.open {
     background-color: var(--text-color);
 }
 
@@ -163,7 +165,7 @@
 
 .contact-btn {
     background-color: var(--text-color);
-    color: var(--text-color);
+    color: #000000;
     border: none;
     padding: 1rem 2rem;
     font-weight: 700;
@@ -175,6 +177,7 @@
 
 .contact-btn:hover {
     transform: scale(1.05);
+    color: var(--yellow-accent, #FFC815);
 }
 
 .quick-stats {
@@ -244,6 +247,7 @@
     .faq-grid {
         grid-template-columns: 1fr;
     }
+
     .faq-sidebar {
         order: -1;
     }
@@ -253,6 +257,7 @@
     .faq-header h1 {
         font-size: 2.5rem;
     }
+
     .faq-cta h2 {
         font-size: 2rem;
     }
