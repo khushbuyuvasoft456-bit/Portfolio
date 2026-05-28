@@ -31,6 +31,7 @@
     font-weight: 800;
     letter-spacing: 2px;
     margin-bottom: 1rem;
+    color: #000000;
 }
 
 .pricing-header .separator {
@@ -279,12 +280,15 @@
     .pricing-header h1 {
         font-size: 2.5rem;
     }
+
     .faq-grid {
         grid-template-columns: 1fr;
     }
+
     .quote-box {
         padding: 40px 20px;
     }
+
     .quote-box h2 {
         font-size: 2rem;
     }
