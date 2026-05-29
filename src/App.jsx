@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Link } from 'react-scroll';
 import { Routes, Route, NavLink, Link as RouterLink, useLocation } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
@@ -8,22 +8,24 @@ import ScrollReveal from './components/ScrollReveal';
 import './App.css';
 import { useTheme } from './context/ThemeContext';
 import bgImage from './assets/designer_bg.webp';
-import About from './components/About';
+import PageLoader from './components/PageLoader';
+
+const About = lazy(() => import('./components/About'));
+const ServicesPage = lazy(() => import('./components/ServicesPage'));
+const PortfolioPage = lazy(() => import('./components/PortfolioPage'));
+const ProjectDetails = lazy(() => import('./components/ProjectDetails'));
+const FAQPage = lazy(() => import('./components/FAQPage'));
+const ContactPage = lazy(() => import('./components/ContactPage'));
+const PricingPage = lazy(() => import('./components/PricingPage'));
+const Blog = lazy(() => import('./components/Blog'));
 import Services from './components/Services';
-import ServicesPage from './components/ServicesPage';
 import Portfolio from './components/Portfolio';
-import PortfolioPage from './components/PortfolioPage';
-import ProjectDetails from './components/ProjectDetails';
-import FAQPage from './components/FAQPage';
-import ContactPage from './components/ContactPage';
-import PricingPage from './components/PricingPage';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Clients from './components/Clients';
 import Testimonial from './components/Testimonial';
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
-import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import HireMeModal from './components/HireMeModal';
@@ -164,17 +166,19 @@ function App() {
     <>
       <Navbar onHireMeClick={toggleModal} />
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio/:id" element={<ProjectDetails />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/portfolio/:id" element={<ProjectDetails />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+          </Routes>
+        </Suspense>
       </AnimatePresence>
       <HireMeModal isOpen={isModalOpen} onClose={toggleModal} />
     </>
