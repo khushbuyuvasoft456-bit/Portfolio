@@ -4,7 +4,7 @@ import { Routes, Route, NavLink, Link as RouterLink } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
 import './App.css';
 import { useTheme } from './context/ThemeContext';
-import bgImage from './assets/designer_bg.png';
+import bgImage from './assets/designer_bg.webp';
 import About from './components/About';
 import Services from './components/Services';
 import ServicesPage from './components/ServicesPage';

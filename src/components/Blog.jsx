@@ -1,6 +1,6 @@
 import React from 'react';
 import './Blog.css';
-import blogImg1 from '../assets/blog1.png';
+import blogImg1 from '../assets/blog1.webp';
 
 const blogData = [
   {
