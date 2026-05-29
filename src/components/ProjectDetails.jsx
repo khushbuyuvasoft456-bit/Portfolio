@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import AnimatedPage from './AnimatedPage';
 import './ProjectDetails.css';
 
 import mockupImg from '../assets/project_mockup.webp';
@@ -13,7 +14,7 @@ const ProjectDetails = () => {
   }, [id]);
 
   return (
-    <div className="project-details-v2 fade-in">
+    <AnimatedPage className="project-details-v2 fade-in">
       
       {/* Header / Intro */}
       <header className="pd-header">
@@ -103,7 +104,7 @@ const ProjectDetails = () => {
           </Link>
         </div>
       </footer>
-    </div>
+    </AnimatedPage>
   );
 };
 

@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import AnimatedPage from './AnimatedPage';
 import './ContactPage.css';
 
 const contactPageSchema = z.object({
@@ -57,7 +58,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-page">
+    <AnimatedPage className="contact-page">
       <header className="page-header contact-header">
         <div className="container">
           <span className="subtitle">Get In Touch</span>
@@ -190,7 +191,7 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </div>
+    </AnimatedPage>
   );
 };
 

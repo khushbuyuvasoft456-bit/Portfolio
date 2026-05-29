@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedPage from './AnimatedPage';
 import './ServicesPage.css';
 
 const servicesData = [
@@ -109,7 +110,7 @@ const servicesData = [
 
 const ServicesPage = () => {
   return (
-    <div className="services-page">
+    <AnimatedPage className="services-page">
       <header className="page-header">
         <div className="container">
           <span className="subtitle">What I can do</span>
@@ -191,7 +192,7 @@ const ServicesPage = () => {
           <button className="contact-btn">GET A QUOTE</button>
         </div>
       </section>
-    </div>
+    </AnimatedPage>
   );
 };
 
