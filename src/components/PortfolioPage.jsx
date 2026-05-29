@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './PortfolioPage.css';
 
-import imgClock from '../assets/portfolio_clock.png';
-import imgDecanter from '../assets/portfolio_decanter.png';
-import imgHeadphones from '../assets/portfolio_headphones.png';
+import imgClock from '../assets/portfolio_clock.webp';
+import imgDecanter from '../assets/portfolio_decanter.webp';
+import imgHeadphones from '../assets/portfolio_headphones.webp';
 
 const portfolioItems = [
   { id: 1, category: 'WORDPRESS', img: imgClock, title: 'Clock App Design', description: 'A minimalist clock application with smart features.' },
@@ -66,7 +66,7 @@ const PortfolioPage = () => {
             {filteredItems.map(item => (
               <div className="portfolio-card" key={item.id}>
                 <div className="card-image">
-                  <img src={item.img} alt={item.title} />
+                  <img src={item.img} alt={item.title} loading="lazy" />
                   <div className="card-overlay">
                     <div className="overlay-content">
                       <span className="item-category">{item.category}</span>

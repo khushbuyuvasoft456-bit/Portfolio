@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Portfolio.css';
 
-import imgClock from '../assets/portfolio_clock.png';
-import imgDecanter from '../assets/portfolio_decanter.png';
-import imgHeadphones from '../assets/portfolio_headphones.png';
+import imgClock from '../assets/portfolio_clock.webp';
+import imgDecanter from '../assets/portfolio_decanter.webp';
+import imgHeadphones from '../assets/portfolio_headphones.webp';
 
 const categoriesList = ['WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
 const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
@@ -70,7 +70,7 @@ const Portfolio = () => {
       <div className="portfolio-gallery">
         {currentItems.map((item) => (
           <div className="gallery-item fade-in" key={item.id}>
-            <img src={item.img} alt={item.alt} />
+            <img src={item.img} alt={item.alt} loading="lazy" />
           </div>
         ))}
       </div>

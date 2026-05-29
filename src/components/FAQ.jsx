@@ -35,20 +35,21 @@ const FAQ = () => {
         <div className="faq-visuals">
           <div className="faq-bg-text">FAQ</div>
           <div className="faq-image-wrapper">
-             <div className="question-mark">?</div>
-             <img 
-                src="https://img.freepik.com/free-photo/pensive-man-thinking-looking-up_23-2148192660.jpg" 
-                alt="Thinking Man" 
-                className="thinking-man-img"
-             />
+            <div className="question-mark">?</div>
+            <img
+              src="https://img.freepik.com/free-photo/pensive-man-thinking-looking-up_23-2148192660.jpg"
+              alt="Thinking Man"
+              className="thinking-man-img"
+              loading="lazy"
+            />
           </div>
         </div>
 
         {/* Right Side: Accordion */}
         <div className="faq-list">
           {faqData.map((item) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               className={`faq-item ${openId === item.id ? 'active' : ''}`}
               onClick={() => setOpenId(openId === item.id ? null : item.id)}
             >
@@ -56,7 +57,7 @@ const FAQ = () => {
                 <span className="faq-q-icon">Q</span>
                 <h4 className="faq-question">{item.question}</h4>
               </div>
-              
+
               {openId === item.id && (
                 <div className="faq-answer-row">
                   <span className="faq-a-icon">A.</span>
@@ -65,7 +66,7 @@ const FAQ = () => {
               )}
             </div>
           ))}
-          
+
           <div className="faq-footer-action" style={{ marginTop: '2rem' }}>
             <Link to="/faq" className="view-all-faq-btn">VIEW ALL FAQs</Link>
           </div>

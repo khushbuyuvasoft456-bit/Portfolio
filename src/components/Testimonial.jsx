@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Testimonial.css';
-import portraitImg from '../assets/testimonial_portrait.png';
+import portraitImg from '../assets/testimonial_portrait.webp';
 
 const testimonialsData = [
   {
@@ -75,7 +75,7 @@ const Testimonial = () => {
                   <div className="avatar-wrapper">
                     <div className="avatar-hexagon-outer">
                       <div className="avatar-hexagon-inner">
-                        <img src={portraitImg} alt={item.name} />
+                        <img src={portraitImg} alt={item.name} loading="lazy" />
                       </div>
                     </div>
                   </div>

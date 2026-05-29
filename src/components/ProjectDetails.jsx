@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetails.css';
 
-import mockupImg from '../assets/project_mockup.png';
-import bannerImg from '../assets/project_banner.png';
+import mockupImg from '../assets/project_mockup.webp';
+import bannerImg from '../assets/project_banner.webp';
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -51,7 +51,7 @@ const ProjectDetails = () => {
       <section className="pd-showcase">
         <div className="container">
           <div className="pd-image-large">
-            <img src={bannerImg} alt="Project Banner" />
+            <img src={bannerImg} alt="Project Banner" loading="lazy" />
           </div>
         </div>
       </section>
@@ -83,7 +83,7 @@ const ProjectDetails = () => {
       <section className="pd-gallery">
         <div className="container pd-gallery-container">
           <div className="pd-gallery-item">
-            <img src={mockupImg} alt="App Mockup" />
+            <img src={mockupImg} alt="App Mockup" loading="lazy" />
           </div>
           <div className="pd-gallery-text">
             <h3>Refined <br/> Interactions</h3>
