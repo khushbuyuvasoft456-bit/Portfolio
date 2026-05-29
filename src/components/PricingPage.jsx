@@ -65,7 +65,7 @@ const PricingPage = () => {
             <span className="line"></span>
           </div>
           <p className="header-text">
-            Choose the perfect plan for your business needs. Transparent pricing 
+            Choose the perfect plan for your business needs. Transparent pricing
             with no hidden costs. We provide high-quality solutions for every budget.
           </p>
         </div>
