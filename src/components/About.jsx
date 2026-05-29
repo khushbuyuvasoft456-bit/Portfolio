@@ -1,9 +1,11 @@
 import React from 'react';
+import AnimatedPage from './AnimatedPage';
 import './About.css';
 
 const About = () => {
   return (
-    <section className="about-section" id="about">
+    <AnimatedPage>
+      <section className="about-section" id="about">
       <div className="about-header">
         <span className="subtitle">Who am i</span>
         <h2>ABOUT ME</h2>
@@ -64,7 +66,8 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </AnimatedPage>
   );
 };
 

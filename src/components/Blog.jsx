@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedPage from './AnimatedPage';
 import './Blog.css';
 import blogImg1 from '../assets/blog1.webp';
 
@@ -19,7 +20,8 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <section className="blog-section" id="blog">
+    <AnimatedPage>
+      <section className="blog-section" id="blog">
       <div className="section-header">
         <span className="subtitle">What i am thinking</span>
         <h2>LATEST BLOG</h2>
@@ -50,7 +52,8 @@ const Blog = () => {
       <div className="blog-footer">
         <button className="view-all-btn">VIEW ALL</button>
       </div>
-    </section>
+      </section>
+    </AnimatedPage>
   );
 };
 

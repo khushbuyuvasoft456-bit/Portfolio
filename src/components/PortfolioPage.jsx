@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import AnimatedPage from './AnimatedPage';
 import './PortfolioPage.css';
 
 import imgClock from '../assets/portfolio_clock.webp';
@@ -27,7 +28,7 @@ const PortfolioPage = () => {
     : portfolioItems.filter(item => item.category === filter);
 
   return (
-    <div className="portfolio-page">
+    <AnimatedPage className="portfolio-page">
       <header className="page-header">
         <div className="container">
           <span className="subtitle">My Works</span>
@@ -98,7 +99,7 @@ const PortfolioPage = () => {
           <button className="contact-btn">HIRE ME NOW</button>
         </div>
       </section>
-    </div>
+    </AnimatedPage>
   );
 };
 

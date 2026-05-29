@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { Routes, Route, NavLink, Link as RouterLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Link as RouterLink, useLocation } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
+import { AnimatePresence } from 'framer-motion';
+import AnimatedPage from './components/AnimatedPage';
+import ScrollReveal from './components/ScrollReveal';
 import './App.css';
 import { useTheme } from './context/ThemeContext';
 import bgImage from './assets/designer_bg.webp';
@@ -51,8 +54,8 @@ const Navbar = ({ onHireMeClick }) => {
         </div>
       </HashLink>
 
-      <button 
-        className="mobile-menu-btn" 
+      <button
+        className="mobile-menu-btn"
         onClick={toggleMobileMenu}
         aria-expanded={isMobileMenuOpen}
         aria-controls="mobile-menu"
@@ -103,7 +106,7 @@ const Navbar = ({ onHireMeClick }) => {
 };
 
 const Home = ({ onHireMeClick }) => (
-  <>
+  <AnimatedPage>
     <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="overlay"></div>
       <main className="hero-content">
@@ -135,41 +138,44 @@ const Home = ({ onHireMeClick }) => (
         <div className="spacer"></div>
       </div>
     </div>
-    <Services />
-    <Portfolio />
-    <Skills />
-    <Resume />
-    <Testimonial />
-    <Stats />
-    <Pricing />
-    <Clients />
+    <ScrollReveal delay={0.1}><Services /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Portfolio /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Skills /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Resume /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Testimonial /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Stats /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Pricing /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Clients /></ScrollReveal>
 
-    <FAQ />
-    <Contact />
-  </>
+    <ScrollReveal delay={0.1}><FAQ /></ScrollReveal>
+    <ScrollReveal delay={0.1}><Contact /></ScrollReveal>
+  </AnimatedPage>
 );
 
 
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <>
       <Navbar onHireMeClick={toggleModal} />
-      <Routes>
-        <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/portfolio/:id" element={<ProjectDetails />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home onHireMeClick={toggleModal} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:id" element={<ProjectDetails />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+        </Routes>
+      </AnimatePresence>
       <HireMeModal isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );
