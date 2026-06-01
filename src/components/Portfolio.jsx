@@ -6,7 +6,7 @@ import imgClock from '../assets/portfolio_clock.webp';
 import imgDecanter from '../assets/portfolio_decanter.webp';
 import imgHeadphones from '../assets/portfolio_headphones.webp';
 
-const categoriesList = ['WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
+const categoriesList = ['React', 'Next.js', 'Tailwind', 'Full Stack'];
 const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
   let img = imgClock;
   let alt = "Minimalist desk clock";
@@ -23,10 +23,10 @@ const allPortfolioItems = Array.from({ length: 24 }).map((_, index) => {
 
 const Portfolio = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [filter, setFilter] = useState('ALL');
-  const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
+  const [filter, setFilter] = useState('All');
+  const categories = ['All', 'React', 'Next.js', 'Tailwind', 'Full Stack'];
 
-  const filteredItems = filter === 'ALL'
+  const filteredItems = filter === 'All'
     ? allPortfolioItems
     : allPortfolioItems.filter(item => item.category === filter);
 

@@ -8,22 +8,22 @@ import imgDecanter from '../assets/portfolio_decanter.webp';
 import imgHeadphones from '../assets/portfolio_headphones.webp';
 
 const portfolioItems = [
-  { id: 1, category: 'WORDPRESS', img: imgClock, title: 'Clock App Design', description: 'A minimalist clock application with smart features.' },
-  { id: 2, category: 'HTML & CSS', img: imgDecanter, title: 'Decanter Brand', description: 'Branding and landing page for a luxury decanter.' },
-  { id: 3, category: 'JAVASCRIPT', img: imgHeadphones, title: 'Audio System', description: 'Interactive dashboard for a high-end audio system.' },
-  { id: 4, category: 'MAGENTO', img: imgClock, title: 'E-commerce Shop', description: 'A robust e-commerce solution for retail.' },
-  { id: 5, category: 'PHP & MYSQL', img: imgDecanter, title: 'Data Analytics', description: 'Complex data visualization and management system.' },
-  { id: 6, category: 'PHOTOSHOP', img: imgHeadphones, title: 'Social Media Kit', description: 'Creative assets for social media marketing.' },
-  { id: 7, category: 'WORDPRESS', img: imgClock, title: 'Portfolio Site', description: 'A personal portfolio for a professional artist.' },
-  { id: 8, category: 'HTML & CSS', img: imgDecanter, title: 'Real Estate Portal', description: 'Property listing and search platform.' },
-  { id: 9, category: 'JAVASCRIPT', img: imgHeadphones, title: 'Game Interface', description: 'UI/UX design for a mobile gaming app.' },
+  { id: 1, category: 'React', img: imgClock, title: 'Clock App Design', description: 'A minimalist clock application with smart features.' },
+  { id: 2, category: 'Next.js', img: imgDecanter, title: 'Decanter Brand', description: 'Branding and landing page for a luxury decanter.' },
+  { id: 3, category: 'Tailwind', img: imgHeadphones, title: 'Audio System', description: 'Interactive dashboard for a high-end audio system.' },
+  { id: 4, category: 'Full Stack', img: imgClock, title: 'E-commerce Shop', description: 'A robust e-commerce solution for retail.' },
+  { id: 5, category: 'React', img: imgDecanter, title: 'Data Analytics', description: 'Complex data visualization and management system.' },
+  { id: 6, category: 'Next.js', img: imgHeadphones, title: 'Social Media Kit', description: 'Creative assets for social media marketing.' },
+  { id: 7, category: 'Tailwind', img: imgClock, title: 'Portfolio Site', description: 'A personal portfolio for a professional artist.' },
+  { id: 8, category: 'Full Stack', img: imgDecanter, title: 'Real Estate Portal', description: 'Property listing and search platform.' },
+  { id: 9, category: 'React', img: imgHeadphones, title: 'Game Interface', description: 'UI/UX design for a mobile gaming app.' },
 ];
 
 const PortfolioPage = () => {
-  const [filter, setFilter] = useState('ALL');
-  const categories = ['ALL', 'WORDPRESS', 'HTML & CSS', 'JAVASCRIPT', 'MAGENTO', 'PHP & MYSQL', 'PHOTOSHOP'];
+  const [filter, setFilter] = useState('All');
+  const categories = ['All', 'React', 'Next.js', 'Tailwind', 'Full Stack'];
 
-  const filteredItems = filter === 'ALL'
+  const filteredItems = filter === 'All'
     ? portfolioItems
     : portfolioItems.filter(item => item.category === filter);
 
