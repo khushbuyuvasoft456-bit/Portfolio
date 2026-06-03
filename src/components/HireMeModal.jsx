@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import Modal from './Modal';
 import './HireMeModal.css';
 
 const HireMeModal = ({ isOpen, onClose }) => {
@@ -49,9 +50,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>&times;</button>
+    <Modal isOpen={isOpen} onClose={onClose}>
         
         <div className="modal-header">
           <h2>Hire Me</h2>
@@ -126,8 +125,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
             </div>
           )}
         </form>
-      </div>
-    </div>
+    </Modal>
   );
 };
 
