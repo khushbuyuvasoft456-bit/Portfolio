@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './ProjectDetails.css';
 
 import mockupImg from '../assets/project_mockup.webp';
@@ -15,6 +16,7 @@ const ProjectDetails = () => {
 
   return (
     <AnimatedPage className="project-details-v2 fade-in">
+      <SEO title={`Project ${id}`} description={`In-depth case study and details for Project No. ${id}.`} />
       
       {/* Header / Intro */}
       <header className="pd-header">

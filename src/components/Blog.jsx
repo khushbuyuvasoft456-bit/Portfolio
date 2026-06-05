@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './Blog.css';
 import blogImg1 from '../assets/blog1.webp';
 
@@ -21,6 +22,7 @@ const blogData = [
 const Blog = () => {
   return (
     <AnimatedPage>
+      <SEO title="Blog" description="Read the latest articles and thoughts on UI/UX design and frontend development by Khushbu Gurjar." />
       <section className="blog-section" id="blog">
       <div className="section-header">
         <span className="subtitle">What i am thinking</span>

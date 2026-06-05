@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './ServicesPage.css';
 
 const servicesData = [
@@ -111,6 +112,7 @@ const servicesData = [
 const ServicesPage = () => {
   return (
     <AnimatedPage className="services-page">
+      <SEO title="Services" description="Explore the professional services offered by Khushbu Gurjar, including Web Design, Development, and UI/UX." />
       <header className="page-header">
         <div className="container">
           <span className="subtitle">What I can do</span>

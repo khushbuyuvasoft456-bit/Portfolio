@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './PortfolioPage.css';
 
 import imgClock from '../assets/portfolio_clock.webp';
@@ -29,6 +30,7 @@ const PortfolioPage = () => {
 
   return (
     <AnimatedPage className="portfolio-page">
+      <SEO title="Portfolio" description="View the creative portfolio of Khushbu Gurjar. Projects spanning React, Next.js, and Full Stack development." />
       <header className="page-header">
         <div className="container">
           <span className="subtitle">My Works</span>

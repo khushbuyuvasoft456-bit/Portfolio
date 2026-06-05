@@ -1,10 +1,12 @@
 import React from 'react';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './About.css';
 
 const About = () => {
   return (
     <AnimatedPage>
+      <SEO title="About Me" description="Learn more about Khushbu Gurjar, UI/UX Designer & Frontend Developer from Amsterdam." />
       <section className="about-section" id="about">
       <div className="about-header">
         <span className="subtitle">Who am i</span>

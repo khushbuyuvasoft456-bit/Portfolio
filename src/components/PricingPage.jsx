@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './PricingPage.css';
 
 const pricingPlans = [
@@ -55,6 +56,7 @@ const pricingPlans = [
 const PricingPage = () => {
   return (
     <AnimatedPage className="pricing-page">
+      <SEO title="Pricing" description="View Khushbu Gurjar's transparent pricing plans for web design, development, and custom web applications." />
       <header className="page-header pricing-header">
         <div className="container">
           <span className="subtitle">Service Plans</span>
