@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './ContactPage.css';
 
 const contactPageSchema = z.object({
@@ -59,6 +60,7 @@ const ContactPage = () => {
 
   return (
     <AnimatedPage className="contact-page">
+      <SEO title="Contact" description="Get in touch with Khushbu Gurjar. Discuss your project requirements, get a quote, or just say hi." />
       <header className="page-header contact-header">
         <div className="container">
           <span className="subtitle">Get In Touch</span>

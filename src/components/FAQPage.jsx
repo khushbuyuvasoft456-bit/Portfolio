@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AnimatedPage from './AnimatedPage';
+import SEO from './SEO';
 import './FAQPage.css';
 
 const faqData = [
@@ -44,6 +45,7 @@ const FAQPage = () => {
 
   return (
     <AnimatedPage className="faq-page">
+      <SEO title="FAQ" description="Frequently Asked Questions about Khushbu Gurjar's services, process, and pricing." />
       <header className="page-header faq-header">
         <div className="container">
           <span className="subtitle">Common Questions</span>

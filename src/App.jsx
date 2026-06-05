@@ -9,6 +9,7 @@ import './App.css';
 import { useTheme } from './context/ThemeContext';
 import bgImage from './assets/designer_bg.webp';
 import PageLoader from './components/PageLoader';
+import SEO from './components/SEO';
 
 const About = lazy(() => import('./components/About'));
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
@@ -109,6 +110,7 @@ const Navbar = ({ onHireMeClick }) => {
 
 const Home = ({ onHireMeClick }) => (
   <AnimatedPage>
+    <SEO title="Home" />
     <div className="hero-container" id="home" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="overlay"></div>
       <main className="hero-content">

@@ -8,11 +8,11 @@ const Modal = ({ isOpen, onClose, children }) => {
         onClose();
       }
     };
-    
+
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
     }
-    
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
